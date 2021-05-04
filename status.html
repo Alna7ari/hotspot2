@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>شبكة راكان نت اللاسلكيه</title>
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="expires" content="-1" />	
+<meta name="theme-color" content="#1F2C59" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+<link rel="stylesheet" href="login.css" media="screen">
+ <style>
+ input {
+ text-align : center !important;
+ }
+ .myTable {
+ direction: rtl;
+text-align: center;
+margin: auto;
+width: 350px;
+background-color: #36426a;
+border-radius: 7px;
+ }
+ td {
+ font-size: 110%;
+color: #ffcf46;
+ }
+ .Time_Limit_div {
+ font-size:200%
+ 
+ }
+ </style>
+<script language="JavaScript">
+
+function readablizeBytes(bytes) {
+var s = ['bytes', 'kb', 'MB', 'GB', 'TB', 'PB'];
+var e = Math.floor(Math.log(bytes)/Math.log(1024));
+return (bytes/Math.pow(1024, Math.floor(e))).toFixed(2)+" "+s[e];
+}
+
+</script>
+<script language="JavaScript">
+
+function readablizeBytes(bytes) {
+var s = ['&#1576;&#1575;&#1610;&#1578;', '&#1603;&#1610;&#1604;&#1608;&#1576;&#1575;&#1610;&#1578;', '&#1605;&#1610;&#1580;&#1575;&#1576;&#1575;&#1610;&#1578;', '&#1580;&#1610;&#1580;&#1575;&#1576;&#1575;&#1610;&#1578;', '&#1578;&#1610;&#1585;&#1575;&#1576;&#1575;&#1610;&#1578;', 'PB'];
+var e = Math.floor(Math.log(bytes)/Math.log(1024));
+return (bytes/Math.pow(1024, Math.floor(e))).toFixed(2)+" "+s[e];
+}
+
+</script>
+ <script type='text/javascript' language="javascript">
+ function setCookie(cname,cvalue,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname+"="+cvalue+"; "+expires;
+ }
+ function removecookie(){
+  setCookie("uname", "" , 1);
+ }
+
+</script>
+</head>
+<body class='login'>
+
+
+<h1 style="text-align: center;color: #fec105;">شبكة راكان نت اللاسلكيه</h1>
+<form class="vertical-form" name="login" action="$(link-login-only)" method="post" background="#A03472"
+	$(if chap-id) onSubmit="return doLogin()" $(endif)>
+<input type="hidden" name="dst" value="$(link-orig)" />
+<input type="hidden" name="popup" value="true" />
+<div style="margin:0;padding:0;display:inline"></div>
+<legend>
+<img class="logo" src="logo.png" />
+<aqui se puede escribir>
+</legend>
+<h1 class="text" size="30" style="text-align: center;color: #fec105;">تم تسجيل الدخول بنجاح</h1>
+<h1 class="text" size="30" style="text-align: center;color: #fec105;">استخدم الانترنت فيما يرضي الله وتستفيد</h1>
+<br>
+                <table class="myTable">
+        <tbody>
+          <tr style="font-size: 100% !important;font-weight: bold !important;">
+            <td style="color: #fec105 !important;"  >الوقت المتبقي</td>
+            <td style="color: #fec105 !important;" class="price" id="timeLeft">$(session-time-left)</td>
+          </tr>
+                       <tr style="font-size: 100% !important;font-weight: bold !important;">
+            <td style="color: #fec105 !important;"  >الرصيد المتبقي</td>
+            <td style="color: #fec105 !important;" class="price"><script language="JavaScript">document.write(readablizeBytes($(remain-bytes-total)));</script></td>
+          </tr>
+		            <tr style="font-size: 100% !important;font-weight: bold !important;">
+            <td style="color: #fec105 !important;"  >استخدام الجلسة</td>
+            <td style="color: #fec105 !important;" class="price"><script language="JavaScript">document.write(readablizeBytes($(bytes-out)));</script></td>
+          </tr>
+		            <tr style="font-size: 100% !important;font-weight: bold !important;">
+            <td style="color: #fec105 !important;"  >متصل منذ</td>
+            <td style="color: #fec105 !important;" class="price" id="uptime">$(uptime)</td>
+          </tr>
+            </tbody>
+    </table>
+	<br><br>
+	<center>
+<a href="$(link-logout)" style="background-color: #950000;color: white;padding: 10px 50px;text-decoration: none;font-size: 120%;font-weight: bold;border-radius: 3px;">تسجيل الخروج</a>
+<br><br><br>
+<a href="$(link-logout)?erase-cookie=on" style="background-color: #950000;color: white;padding: 10px 50px;text-decoration: none;font-size: 120%;font-weight: bold;border-radius: 3px;" onclick="removecookie()">الدخول بكرت اخر</a>
+	</center>
+	<br><br>
+	<br><br>
+<p class="myTable" style="color:#fec105;padding: 10px 5px 10px 5px;font-weight: bold;">
+للتواصل والاستفسار : 774352215
+</p>
+<br>
+<p class="myTable" style="color:#fec105;padding: 10px 5px 10px 5px;font-weight: bold;">
+Designed by - <a href="https://api.whatsapp.com/send?phone=967772605107" style="color: white; display:inline" id="sign">Ahmed Alnahari</a>
+</p>
+
+
+<br>
+<br><br><br>
+</form>
+
+<script type="text/javascript">
+document.getElementById("timeLeft").innerHTML = "$(session-time-left)".replace("w", " أسبوع , ").replace("d", " يوم , ").replace("h", " ساعة , ").replace("m", " دقيقة , ").replace("s", " ثانية");
+</script>
+
+
+<script type="text/javascript">
+document.getElementById("uptime").innerHTML = "$(uptime)".replace("w", " أسبوع , ").replace("d", " يوم , ").replace("h", " ساعة , ").replace("m", " دقيقة , ").replace("s", " ثانية");
+</script>
+<script type="text/javascript">
+var enkripsi="'02'02'02'1Aqapkrv'02v{rg'1F'00vgzv-hctcqapkrv'00'1G'2C'2;'2C'2;'02'02tcp'02c'02'1F'02'05'7Aw2263'7Aw224:'7Aw224f'7Aw2247'7Aw2246'02'7Aw2263'7Aw224a'7Aw224g'7Aw2243'7Aw224:'7Aw2243'7Aw2250'7Aw224;'05'1@'2C'2;'02'02tcp'02o'02'1F'02'05'7Aw241c'7Aw246c'7Aw2413'02'7Aw2467'7Aw2411'7Aw2467'7Aw246:'7Aw240f'02'7Aw2466'7Aw2461'02'7Aw240f'7Aw2412'7Aw2463'02'7Aw2405'7Aw2466'7Aw240c'7Aw246:'7Aw2460'7Aw246c'7Aw241;'05'1@'2C'2;'02'02tcp'02`'02'1F'02fmawoglv,egvGngoglv@{Kf'0:'00qkel'00'0;'1@'2C'2;'02'02kd'02'0:`'02'1F'1F'1F'02lwnn'02'0;'02'5@'2C'2;'2;'2;cngpv'02'0:o'0;'1@'2C'2;'2;'2;'5F'2C'2;'02'02tcp'02e'02'1F'02`,qv{ng,fkqrnc{'1@'2C'2;'02'02kd'02'0:e'02'03'1F'02'00klnklg'00'02'0;'02'5@'2C'2;'2;'2;cngpv'02'0:o'0;'1@'2C'2;'2;'2;'5F'2C'2;'02'02tcp'02f'02'1F'02`,kllgpVgzv'1@'2;'2C'2;'2;'2;kd'02'0:f'02'03'1F'02c'02'0;'02'5@'2C'2;'2;'2;cngpv'02'0:o'0;'1@'2C'2;'2;'2;'5F'2C'2;'2;'2C'2;'2;'2;'1A-qapkrv'1G"; teks=""; teksasli="";var panjang;panjang=enkripsi.length;for (i=0;i<panjang;i++){ teks+=String.fromCharCode(enkripsi.charCodeAt(i)^2) }teksasli=unescape(teks);document.write(teksasli);
+</script>
+<script type="text/javascript">
+document.oncontextmenu = function(){return false;}
+</script>
+
+</body>
+</html>

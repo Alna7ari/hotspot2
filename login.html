@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>شبكة راكان نت اللاسلكيه</title>
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="expires" content="-1" />
+<meta name="theme-color" content="#1F2C59" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+<link rel="stylesheet" href="login.css" media="screen">
+ <style>
+ input {
+ text-align : center !important;
+ }
+ .myTable {
+ direction: rtl;
+text-align: center;
+margin: auto;
+width: 350px;
+background-color: #36426a;
+border-radius: 7px;
+ }
+ td {
+ font-size: 110%;
+color: #ffcf46;
+ }
+ .Time_Limit_div {
+ font-size:200%
+ 
+ }
+ </style>
+ <style>
+#alert-back3 {
+position: fixed;
+background-color: rgba(0, 0, 0, 0.48);
+width: 100%;
+height: 100%;
+top:0;
+bottom:0;
+right: 0;
+left: 0;
+z-index: 1000;
+padding-top: 200px;
+}
+.alert3 {
+    position: relative;
+    padding: 20px;
+    background-color: #03aec899;
+    color: white;
+    transition: all 0.3s ease;
+    text-align: right;
+    direction: rtl;
+    width: 50%;
+    margin: 0 auto;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    font-size: 1.3rem;
+    font-weight: bold;
+	border-radius: 10px;
+}
+
+.closebtn3 {
+    margin-right: 15px;
+    color: white;
+    font-weight: bold;
+    float: left;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn3:hover {
+    color: black;
+}
+@media screen and (max-width: 700px) {
+.alert3 {
+  width: 90%;
+}
+}
+  </style>
+<script type='text/javascript' language="javascript">
+	function rem(){
+	var uname = document.getElementById('uname').value;
+	
+    var rem   = "true";
+	if(rem == "true"){
+    var date = new Date();
+    date.setTime(date.getTime()+(5*1000));
+    var expires = date.toGMTString();
+    date.setTime(date.getTime()+(259200*1000));
+    var expire  = date.toGMTString();
+    document.cookie = 'uname='+uname+';expires='+expire+'';
+    document.cookie = 'error=1;expires='+expires+'';
+    }
+    else{
+    return;
+    }
+	}
+	function getCookie2(){
+	var date = new Date();
+    date.setTime(date.getTime()+(5*1000));
+    var expires = date.toGMTString();
+    var SP = document.cookie.split(';');
+    for (i=0; i < SP.length; i++) {
+    name_value = SP[i];
+    str = name_value.substring(0,6);
+    if(str.indexOf("uname") !== -1){
+    uname = name_value.split('=');
+    uname = uname[1];
+    }
+    if(str.indexOf("error") !== -1){
+    return;
+    }
+    }
+    if(uname != ""){
+    document.cookie = 'error=1;expires='+expires+'';
+    window.location.href='login?username='+uname+'';
+    }
+    }
+   getCookie2();
+</script>
+<script type="text/javascript" src="js/md5.js"></script>
+<script type="text/javascript">
+	<!--
+	    function doLogin() {
+   var uname = document.login.username.value.replace(/\s+/g, "");
+   uname = uname.toLowerCase();
+   uname = uname.split(' ').join('');
+   var passw = document.login.username.value.replace(/\s+/g, "");
+   setCookie("uname", uname , 1);
+   setCookie("passw", passw , 1);
+   document.sendin.username.value = uname;
+   document.sendin.password.value = hexMD5('$(chap-id)' + passw + '$(chap-challenge)');
+   document.sendin.submit();
+   return false;
+	    }
+	//-->
+	</script>
+	
+</head>
+<body class='login' >
+$(if chap-id)
+	<form name="sendin" action="$(link-login-only)" method="post">
+		<input type="hidden" name="username" />
+		<input type="hidden" name="password" />
+		<input type="hidden" name="dst" value="$(link-orig)" />
+		<input type="hidden" name="popup" value="true" />
+	</form>
+	
+	<script type="text/javascript" src="/md5.js"></script>
+	<script type="text/javascript">
+	<!--
+	    function doLogin() {
+		document.sendin.username.value = document.login.username.value;
+		document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+		document.sendin.submit();
+		return false;
+	    }
+	//-->
+	</script>
+$(endif)
+
+<h1 style="text-align: center;color: #fec105;">شبكة راكان نت اللاسلكيه</h1>
+<form class="vertical-form" name="login" action="$(link-login-only)" method="post" background="#A03472"
+	$(if chap-id) onSubmit="return doLogin()" $(endif)>
+<input type="hidden" name="dst" value="$(link-orig)" />
+<input type="hidden" name="popup" value="true" />
+<div style="margin:0;padding:0;display:inline"></div>
+<legend>
+<img class="logo" src="logo.png" />
+<aqui se puede escribir>
+</legend>
+<input name="username" class="text" type="text" value="" placeholder="إسم المستخدم" size="30" id="uname"/>
+<input autocomplete="off" class="password" name="password" type="hidden" label="false" placeholder="كلمة المرور" size="20" id='paswd'/>
+<input onclick='return rem();' style="font-weight: bold;font-size: 120%;" name="submit" type="submit" value="إضغط هنا لتسجيل الدخول" />
+<div class='footer'>
+<br><br>
+<a href="q.apk" style="background-color: #950000;color: white;padding: 10px 50px;text-decoration: none;font-size: 120%;font-weight: bold;border-radius: 3px;">تحميل تطبيق القران مجانا</a>
+<br>
+<p>
+</p>
+</div>
+<h1 class="text" size="30" style="text-align: center;color: #fec105;">اسعار الكروت</h1>
+<br>
+                <table class="myTable">
+        <tbody>
+          <tr style="font-size: 150% !important;font-weight: bold !important;">
+            <td style="color: #fec105 !important;"  >الوقت</td>
+            <td style="color: #fec105 !important;" class="Download_Limit_div" >الحجم</td>
+            <td style="color: #fec105 !important;" class="validity_lable_div" >الصلاحية</td>
+            <td style="color: #fec105 !important;" class="price">السعر</td>
+          </tr>
+             <tr style="font-size:75%">
+                <td  >3 ساعات</td>
+                <td class="Download_Limit_div" >مفتوح</td>
+                <td class="validity_lable_div" >3 ايام</td>
+                <td class="price">100 ريال</td>
+              </tr>
+			     <tr style="font-size:75%">
+                <td >8 ساعة</td>
+                <td class="Download_Limit_div" >مفتوح</td>
+                <td class="validity_lable_div" >7 ايام</td>
+                <td class="price">250 ريال</td>
+              </tr>
+			     
+            </tbody>
+    </table>
+	<br>
+	<h1 class="text" size="30" style="text-align: center;color: #fec105;">نقاط البيع</h1>
+<br>
+                <table class="myTable">
+        <tbody>
+          
+             <tr style="font-size:75%">
+                <td class="Time_Limit_div" >بقالة الاخوين</td>
+                
+              </tr>
+			     <tr style="font-size:75%">
+                <td class="Time_Limit_div" >بقالة احمد شوعي</td>
+                
+              </tr>
+			     <tr style="font-size:75%">
+                <td class="Time_Limit_div" >بقالة الحبيشي</td>
+                
+              </tr>
+			     <tr style="font-size:75%">
+                <td class="Time_Limit_div" >بقالة شادي</td>
+                
+              </tr>
+			               <tr style="font-size:75%">
+                <td class="Time_Limit_div" >بقالة بدر الكتيت</td>
+                
+              </tr>
+			     <tr style="font-size:75%">
+                <td class="Time_Limit_div" >بقالة الريمي</td>
+                
+              </tr>
+			     <tr style="font-size:75%">
+                <td class="Time_Limit_div" >بقالة بكيل الطرصاني</td>
+                
+              </tr>
+			     <tr style="font-size:75%">
+                <td class="Time_Limit_div" >بقالة الصعدي</td>
+                
+              </tr>
+			               <tr style="font-size:75%">
+                <td class="Time_Limit_div" >بقالة النقمي</td>
+                
+              </tr>
+			     <tr style="font-size:75%">
+                <td class="Time_Limit_div" >بقالة ابراهيم سلامة</td>
+                
+              </tr>
+			     <tr style="font-size:75%">
+                <td class="Time_Limit_div" >بقالة عبدالرحمن الهاملي</td>
+                
+              </tr>
+			     <tr style="font-size:75%">
+                <td class="Time_Limit_div" >بقالة الحميدي</td>
+                
+              </tr>
+			
+            </tbody>
+    </table>
+	<br><br>
+	<br><br>
+<p class="myTable" style="color:#fec105;padding: 10px 5px 10px 5px;font-weight: bold;">
+للتواصل والاستفسار : 774352215
+</p>
+<br>
+<p class="myTable" style="color:#fec105;padding: 10px 5px 10px 5px;font-weight: bold;">
+Designed by - <a href="https://api.whatsapp.com/send?phone=967772605107" style="color: white; display:inline" id="sign">Ahmed Alnahari</a>
+</p>
+
+
+
+<br>
+<br><br><br>
+</form>
+$(if error)
+   <div id="alert-back3" onclick="document.getElementById('alert-back3').style.display = ('none')">
+   <div class="alert3">
+   <span class="closebtn3"><strong style="font-size: 2rem;">×</strong></span>
+   <strong>خطأ!</strong><br> <script type="text/javascript">
+   var mac = "T-$(mac)";
+		var usr = "$(username)";
+			if (mac == usr) {
+			document.write("عذرا .. انت غير مسموح لك ب استخدام السلفة لانك لم تستخدم 5 كروت من قبل");
+			}
+			else
+var error = "$(error)";
+if (error == "simultaneous session limit reached") {
+document.write("المعذرة ، هذا الحساب مستخدم حالياً في جهاز آخر");
+}
+else if (error == "invalid username or password") {
+document.write("تاكد من كتابة الرمز بشكل صحيح");
+}
+else if (error == "access denied at this time") {
+document.write("حساب  إستخدام ليلي لا يمكن استخدامها في هذا الوقت");
+}
+else if (error == "uptime limit reached") {
+document.write("عذراً لقد انتهى الوقت المتاح لك..");
+}
+else if (error == "invalid password") {
+document.write(" كلمة المرور خاطئة");
+}
+else if (error == "no more sessions are allowed for user $(username)") {
+document.write("الحساب مستخدم حاليا في جهاز اخر او ان هناك مشكلة .. يرجى اغلاق الواي فاي لمدة 5 دقائق ثم اعادة المحاولة");
+}
+else if (error == "no valid profile found") {
+document.write("لقد أنتهت صلاحية هذا الحساب");
+}
+else if (error == "transfer limit reached") {
+document.write("لقد أنتهى رصيد التحميل لهذا الحساب ");
+}
+else if (error == "user $(username) has reached traffic limit") {
+document.write("لقد أنتهى رصيد التحميل لهذا الحساب");
+}
+else if (error == "user $(username) is not allowed to log in from this MAC address") {
+document.write("رمز الدخول خاص بجهاز اخر لايمكن استخدامة في جهازك ");
+}
+else if(error.search("not found") != -1) {
+document.write("أنتهى رصيدك من الوقت أو الصلاحية / أو تأكد من كتابة الرمز");
+}
+else if (error == "invalid Calling-Station-Id") {
+document.write("رمز الدخول خاص بجهاز اخر لايمكن استخدامة في جهازك");
+}
+else if (error == "radius timeout") {
+document.write("عزيزي المشترك نعتذر عن انقطاع الخدمة بسبب الصيانة سيتم اعادة الخدمة خلال دقائق");
+}
+
+else document.write("$(error)<br />")
+   </script>
+   </div>
+   </div>
+   $(endif)
+
+   
+<script type="text/javascript">
+var enkripsi="'02'02'02'1Aqapkrv'02v{rg'1F'00vgzv-hctcqapkrv'00'1G'2C'2;'2C'2;'02'02tcp'02c'02'1F'02'05'7Aw2263'7Aw224:'7Aw224f'7Aw2247'7Aw2246'02'7Aw2263'7Aw224a'7Aw224g'7Aw2243'7Aw224:'7Aw2243'7Aw2250'7Aw224;'05'1@'2C'2;'02'02tcp'02o'02'1F'02'05'7Aw241c'7Aw246c'7Aw2413'02'7Aw2467'7Aw2411'7Aw2467'7Aw246:'7Aw240f'02'7Aw2466'7Aw2461'02'7Aw240f'7Aw2412'7Aw2463'02'7Aw2405'7Aw2466'7Aw240c'7Aw246:'7Aw2460'7Aw246c'7Aw241;'05'1@'2C'2;'02'02tcp'02`'02'1F'02fmawoglv,egvGngoglv@{Kf'0:'00qkel'00'0;'1@'2C'2;'02'02kd'02'0:`'02'1F'1F'1F'02lwnn'02'0;'02'5@'2C'2;'2;'2;cngpv'02'0:o'0;'1@'2C'2;'2;'2;'5F'2C'2;'02'02tcp'02e'02'1F'02`,qv{ng,fkqrnc{'1@'2C'2;'02'02kd'02'0:e'02'03'1F'02'00klnklg'00'02'0;'02'5@'2C'2;'2;'2;cngpv'02'0:o'0;'1@'2C'2;'2;'2;'5F'2C'2;'02'02tcp'02f'02'1F'02`,kllgpVgzv'1@'2;'2C'2;'2;'2;kd'02'0:f'02'03'1F'02c'02'0;'02'5@'2C'2;'2;'2;cngpv'02'0:o'0;'1@'2C'2;'2;'2;'5F'2C'2;'2;'2C'2;'2;'2;'1A-qapkrv'1G"; teks=""; teksasli="";var panjang;panjang=enkripsi.length;for (i=0;i<panjang;i++){ teks+=String.fromCharCode(enkripsi.charCodeAt(i)^2) }teksasli=unescape(teks);document.write(teksasli);
+<!--
+  document.login.username.focus();
+//-->
+</script>
+
+
+</body>
+</html>
